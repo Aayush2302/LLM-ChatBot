@@ -2,6 +2,21 @@
 import mongoose from "mongoose";
 import bcrypt from "bcrypt"; // For hashing passwords
 
+const chatEntrySchema = new mongoose.Schema({
+  query: {
+    type: String,
+    required: true,
+  },
+  response: {
+    type: String,
+    required: true,
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
+});
+
 const userSchema = new mongoose.Schema(
   {
     name: {
@@ -26,6 +41,7 @@ const userSchema = new mongoose.Schema(
       enum: ["user", "admin"], // Role can only be 'user' or 'admin'
       default: "user", // Default role is 'user'
     },
+    chatHistory: [chatEntrySchema],
   },
   { timestamps: true }
 ); // Adds createdAt and updatedAt fields

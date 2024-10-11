@@ -53,6 +53,8 @@ export const signup = async (req, res) => {
     res.status(400).json({ message: error.message });
   }
 };
+
+//LOGIN
 export const login = async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -85,6 +87,17 @@ export const login = async (req, res) => {
     });
   } catch (error) {
     console.log("Error in login Controller", error.message);
+    res.status(500).json({ message: "Internal server error" });
+  }
+};
+
+//LOGOUT
+export const logout = async (req, res) => {
+  try {
+    res.cookie("jwt", "", { maxAge: 0 });
+    res.status(200).json({ message: "Logged out successfully" });
+  } catch (error) {
+    console.log("Error in Logout controller", error.message);
     res.status(500).json({ message: "Internal server error" });
   }
 };
