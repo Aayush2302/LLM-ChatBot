@@ -49,7 +49,7 @@ export const signup = async (req, res) => {
       res.status(400).json({ message: "Invalid user data" });
     }
   } catch (error) {
-    console.log("Error in signup Controller", error.message);
+    console.log("Error in signup Controller", error);
     res.status(400).json({ message: error.message });
   }
 };
@@ -76,7 +76,7 @@ export const login = async (req, res) => {
     }
 
     // Generate token and set cookie
-    generateTokenAndSetCookie(user._id, res);
+    generateTokenAndSetCookie(user, res); // Pass the entire user object
 
     // Respond with user details (excluding password)
     res.status(200).json({
@@ -86,11 +86,10 @@ export const login = async (req, res) => {
       role: user.role,
     });
   } catch (error) {
-    console.log("Error in login Controller", error.message);
+    console.log("Error in login Controller", error);
     res.status(500).json({ message: "Internal server error" });
   }
 };
-
 //LOGOUT
 export const logout = async (req, res) => {
   try {
