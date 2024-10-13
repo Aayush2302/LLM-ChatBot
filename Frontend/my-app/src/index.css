@@ -1,0 +1,4 @@
+/* @import "daisyui"; Move this to the top */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
