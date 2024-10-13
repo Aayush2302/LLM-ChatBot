@@ -21,7 +21,7 @@ const LoginPage = () => {
     onSuccess: (data) => {
       Cookies.set("jwt", data.token); // Save the token in a cookie
       toast.success("Logged in successfully");
-      navigate("/dashboard");
+      navigate("../home/UserDashboard");
     },
     onError: () => {
       toast.error("Error logging in");

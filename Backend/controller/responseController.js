@@ -75,7 +75,7 @@ const sendQueryToGroqLLM = async (req, res) => {
 
     // Save the query and response to the user's chat history
     await User.findByIdAndUpdate(
-      userId,
+      req.user._id,
       {
         $push: {
           chatHistory: { query, response: responseText },
