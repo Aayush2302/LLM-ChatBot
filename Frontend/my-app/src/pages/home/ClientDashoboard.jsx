@@ -30,7 +30,10 @@ const UserDashboard = () => {
   return (
     <div>
       {isAdmin && (
-        <button onClick={() => navigate("/admin")} className="btn btn-primary">
+        <button
+          onClick={() => navigate("/admin/users")}
+          className="btn btn-primary"
+        >
           Users Data
         </button>
       )}

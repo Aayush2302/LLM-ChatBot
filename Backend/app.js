@@ -8,6 +8,7 @@ import responseRoutes from "./routes/response.route.js";
 import adminRoutes from "./routes/admin.routes.js";
 import chatHistory from "./routes/chatHistory.route.js";
 import role from "./routes/role.routes.js";
+import fetchUsers from "./routes/fetchUsers.routes.js";
 const app = express();
 
 app.use(cookieParser()); // Use cookie-parser
@@ -21,6 +22,7 @@ app.use("/api/responses", responseRoutes);
 app.use("/api/admin", adminRoutes);
 app.use("/api/history", chatHistory);
 app.use("/api/role", role);
+app.use("/api/users", fetchUsers);
 // Connect to DB
 mongoose
   .connect(process.env.MONGO_URI)

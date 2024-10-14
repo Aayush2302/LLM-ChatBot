@@ -73,7 +73,7 @@ const UserDashboard = () => {
     checkRole();
   }, []);
   const handleUsersDataClick = () => {
-    navigate("/admin");
+    navigate("/admin/AdminDashboard"); // Navigate to the admin dashboard
   };
 
   // Handle user logout

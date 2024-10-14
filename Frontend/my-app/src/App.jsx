@@ -5,6 +5,7 @@ import { Toaster } from "react-hot-toast";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom"; // Use Routes instead of Switch
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"; // Import QueryClient and QueryClientProvider
 import "./index.css";
+import AdminDashboard from "./pages/admin/AdminDashboard.jsx";
 // Create a QueryClient instance
 const queryClient = new QueryClient();
 
@@ -20,6 +21,7 @@ function App() {
             <Route path="/signup" element={<SignUpPage />} />
             <Route path="/signin" element={<LoginPage />} />
             <Route path="/home/UserDashboard" element={<UserDashboard />} />
+            <Route path="/admin/AdminDashboard" element={<AdminDashboard />} />
           </Routes>
         </div>
       </Router>
