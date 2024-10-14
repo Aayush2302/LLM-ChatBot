@@ -18,4 +18,6 @@ const router = express.Router();
 
 router.get("/users", protectRoute, isAdmin, getUsersWithChatHistory);
 
+// route for admins only
+
 export default router;

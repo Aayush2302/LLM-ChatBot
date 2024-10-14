@@ -15,12 +15,13 @@ const UserDashboard = () => {
   const [searchHistory, setSearchHistory] = useState([]); // User's search history
   const [selectedQA, setSelectedQA] = useState(null); // Holds selected Q&A
   const [showHistory, setShowHistory] = useState(false); // For mobile view toggling
+  const [isAdmin, setIsAdmin] = useState(false);
 
   // Fetch the user's chat history
   useEffect(() => {
     const fetchHistory = async () => {
       try {
-        const response = await axios.get("/api/history"); // Ensure this endpoint is correct
+        const response = await axios.get("/api/history");
         setSearchHistory(response.data);
       } catch (error) {
         console.error("Error fetching history", error);
@@ -37,7 +38,6 @@ const UserDashboard = () => {
       setInput(""); // Clear the input field
 
       try {
-        // Send query to backend (LLM API)
         const response = await axios.post("/api/responses/query", {
           query: input,
         });
@@ -60,10 +60,25 @@ const UserDashboard = () => {
     setShowHistory(false); // Hide history on mobile after selecting
   };
 
+  // Check if the logged-in user is an admin
+  useEffect(() => {
+    const checkRole = async () => {
+      try {
+        const response = await axios.get("/api/role");
+        setIsAdmin(response.data.role === "admin");
+      } catch (error) {
+        console.error("Error checking user role:", error);
+      }
+    };
+    checkRole();
+  }, []);
+  const handleUsersDataClick = () => {
+    navigate("/admin");
+  };
+
   // Handle user logout
   const handleLogout = () => {
     Cookies.remove("jwt"); // Remove the JWT from cookies
-
     navigate("/signin"); // Redirect to the login page
     toast.success("Logged out successfully");
   };
@@ -94,7 +109,7 @@ const UserDashboard = () => {
             {searchHistory.map((qa) => (
               <li key={qa._id}>
                 <button
-                  className="btn btn-outline truncate w-full" // Ensure the question fits and is truncated
+                  className="btn btn-outline truncate w-full"
                   onClick={() => handleHistoryClick(qa)}
                 >
                   {qa.question}
@@ -114,6 +129,16 @@ const UserDashboard = () => {
         <button className="btn btn-danger mt-4 w-full" onClick={handleLogout}>
           Logout
         </button>
+
+        {/* Admin-specific button */}
+        {isAdmin && (
+          <button
+            onClick={handleUsersDataClick}
+            className="btn btn-primary mt-4"
+          >
+            Users Data
+          </button>
+        )}
       </div>
 
       {/* Main Chat Area */}

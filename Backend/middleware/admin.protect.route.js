@@ -15,7 +15,7 @@ const isAdmin = (req, res, next) => {
 
     // Decode the token to get user info (including role)
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
-
+    req.userRole = decoded.role;
     // Check if the role is 'admin'
     if (decoded.role !== "admin") {
       return res.status(403).json({ message: "Access denied: Admins only" });
