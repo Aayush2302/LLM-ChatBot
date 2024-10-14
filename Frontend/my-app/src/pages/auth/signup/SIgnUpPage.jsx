@@ -10,7 +10,7 @@ import {
   MdPassword,
   MdDriveFileRenameOutline,
 } from "react-icons/md";
-import XSvg from "../../../components/AI.svg";
+// import XSvg from "../../../components/AI.svg";
 import { FaUser } from "react-icons/fa";
 
 const SignUpPage = () => {
