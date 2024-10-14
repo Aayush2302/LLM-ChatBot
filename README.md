@@ -2,6 +2,8 @@
 
 A full-stack chat application that allows users to query a Large Language Model (LLM) through a web interface. The app consists of a frontend built with React, Vite, and Tailwind CSS (using DaisyUI), and a backend built with Node.js, Express, and MongoDB.
 
+### Live Demo
+**Check-Out** : https://llm-chatbot-3.onrender.com
 ## Features
 
 - User authentication and role-based access control (Admin/User).
