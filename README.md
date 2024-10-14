@@ -4,6 +4,11 @@ A full-stack chat application that allows users to query a Large Language Model 
 
 ### Live Demo
 **Check-Out** : https://llm-chatbot-3.onrender.com
+
+## For admin login
+**E-mail Id** : admin@gmail.com
+**Password** : admin123
+
 ## Features
 
 - User authentication and role-based access control (Admin/User).
