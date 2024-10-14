@@ -23,14 +23,14 @@ const AdminDashboard = () => {
   return (
     <div className="p-6 bg-base-100 min-h-screen">
       <h2 className="text-3xl font-bold mb-8 text-center text-primary">
-        User List
+        Admin Panel
       </h2>
       <div className="overflow-x-auto w-full">
         <table className="table w-full table-zebra">
           <thead>
             <tr>
               <th className="text-left">User Name</th>
-              <th className="text-left">Actions</th>
+              <th className="text-left">Responses</th>
             </tr>
           </thead>
           <tbody>
@@ -44,7 +44,7 @@ const AdminDashboard = () => {
                       navigate(`/admin/users/${user._id}/questions`)
                     }
                   >
-                    View Questions
+                    View Responses
                   </button>
                 </td>
               </tr>

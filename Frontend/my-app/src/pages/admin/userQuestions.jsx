@@ -41,7 +41,7 @@ const UserQuestions = () => {
 
   return (
     <div className="p-6">
-      <h2 className="text-3xl font-bold mb-6">Questions of User</h2>
+      <h2 className="text-3xl font-bold mb-6">Responses</h2>
       <ul className="space-y-4">
         {questions.length > 0 ? (
           questions.map((question) => (
