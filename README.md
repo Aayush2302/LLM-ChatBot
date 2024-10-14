@@ -49,7 +49,7 @@ Make sure you have the following installed:
 ### 1. Clone the Repository
 ```bash
 git clone https://github.com/Aayush2302/LLM-ChatBot.git
-cd truegradient-llm
+cd LLM-ChatBot
 ```
 ### 2. Install Dependencies
 ```bash
