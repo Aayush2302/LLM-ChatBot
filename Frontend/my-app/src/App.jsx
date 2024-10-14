@@ -6,6 +6,8 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom"; // Us
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"; // Import QueryClient and QueryClientProvider
 import "./index.css";
 import AdminDashboard from "./pages/admin/AdminDashboard.jsx";
+import UserQuestions from "./pages/admin/userQuestions.jsx";
+
 // Create a QueryClient instance
 const queryClient = new QueryClient();
 
@@ -22,6 +24,10 @@ function App() {
             <Route path="/signin" element={<LoginPage />} />
             <Route path="/home/UserDashboard" element={<UserDashboard />} />
             <Route path="/admin/AdminDashboard" element={<AdminDashboard />} />
+            <Route
+              path="/admin/users/:userId/questions"
+              element={<UserQuestions />}
+            />
           </Routes>
         </div>
       </Router>

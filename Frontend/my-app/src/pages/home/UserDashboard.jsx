@@ -120,25 +120,26 @@ const UserDashboard = () => {
         </div>
         {/* Close History Button */}
         <button
-          className="lg:hidden mt-4 btn btn-primary"
+          className="lg:hidden mt-4 btn btn-primary w-full"
           onClick={() => setShowHistory(false)}
         >
           Close History
         </button>
         {/* Logout Button */}
-        <button className="btn btn-danger mt-4 w-full" onClick={handleLogout}>
-          Logout
-        </button>
 
         {/* Admin-specific button */}
         {isAdmin && (
           <button
             onClick={handleUsersDataClick}
-            className="btn btn-primary mt-4"
+            className="btn btn-primary mt-4  w-full"
           >
             Users Data
           </button>
         )}
+
+        <button className="btn btn-danger mt-4 w-full" onClick={handleLogout}>
+          Logout
+        </button>
       </div>
 
       {/* Main Chat Area */}

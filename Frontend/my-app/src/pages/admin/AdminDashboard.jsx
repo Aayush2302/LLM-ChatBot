@@ -21,21 +21,37 @@ const AdminDashboard = () => {
   }, []);
 
   return (
-    <div className="p-4">
-      <h2 className="text-2xl font-bold mb-4">User List</h2>
-      <ul className="space-y-2">
-        {users.map((user) => (
-          <li key={user._id} className="bg-base-200 p-2 rounded">
-            {user.name} {/* Display only the user's name */}
-            <button
-              className="btn btn-secondary ml-2"
-              onClick={() => navigate(`/users/${user._id}/questions`)} // Navigate to user's questions
-            >
-              View Questions
-            </button>
-          </li>
-        ))}
-      </ul>
+    <div className="p-6 bg-base-100 min-h-screen">
+      <h2 className="text-3xl font-bold mb-8 text-center text-primary">
+        User List
+      </h2>
+      <div className="overflow-x-auto w-full">
+        <table className="table w-full table-zebra">
+          <thead>
+            <tr>
+              <th className="text-left">User Name</th>
+              <th className="text-left">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {users.map((user) => (
+              <tr key={user._id} className="hover:bg-gray-100">
+                <td className="text-lg">{user.name}</td>
+                <td>
+                  <button
+                    className="btn btn-primary btn-sm ml-4"
+                    onClick={() =>
+                      navigate(`/admin/users/${user._id}/questions`)
+                    }
+                  >
+                    View Questions
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };

@@ -15,4 +15,18 @@ router.get("/", isAdmin, async (req, res) => {
   }
 });
 
+router.get("/admin/:userId/questions", isAdmin, async (req, res) => {
+  try {
+    const user = await User.find(req.params.userId).select("chatHistory");
+    if (!user) {
+      return resizeBy.status(404).json({ message: "User not found" });
+    }
+
+    res.json(user.chatHistory);
+  } catch (error) {
+    console.log("Error fetching chat history:", error.message);
+    res.status(500).json({ message: "Error fetching chat history" });
+  }
+});
+
 export default router;

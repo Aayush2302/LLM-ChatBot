@@ -9,6 +9,7 @@ import adminRoutes from "./routes/admin.routes.js";
 import chatHistory from "./routes/chatHistory.route.js";
 import role from "./routes/role.routes.js";
 import fetchUsers from "./routes/fetchUsers.routes.js";
+import UserQuestions from "./routes/admin.Question.routes.js";
 const app = express();
 
 app.use(cookieParser()); // Use cookie-parser
@@ -23,6 +24,7 @@ app.use("/api/admin", adminRoutes);
 app.use("/api/history", chatHistory);
 app.use("/api/role", role);
 app.use("/api/users", fetchUsers);
+app.use("/api/admin", UserQuestions);
 // Connect to DB
 mongoose
   .connect(process.env.MONGO_URI)
