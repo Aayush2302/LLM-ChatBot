@@ -1,10 +1,18 @@
 node_modules
+<<<<<<< HEAD
 /.env
 \.env
 .env
 Backend\.env
+=======
+.env
+>>>>>>> b8ae5c09e3d7b84254419492f4fe1e944e47a9a2
 .DS_Store
 .env.local
 .env.development.local
 .env.test.local
+<<<<<<< HEAD
 .env.production.local
+=======
+.env.production.local
+>>>>>>> b8ae5c09e3d7b84254419492f4fe1e944e47a9a2
