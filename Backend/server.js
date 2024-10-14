@@ -11,11 +11,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Serve static files from the React frontend app
-app.use(express.static(path.join(__dirname, "../Frontend/my-app/build")));
+app.use(express.static(path.join(__dirname, "../Frontend/my-app/dist")));
 
 // The "catchall" handler: for any request that doesn't match one above, send back index.html.
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../Frontend/my-app/build/index.html"));
+  res.sendFile(path.join(__dirname, "../Frontend/my-app/dist/index.html"));
 });
 
 // Use the auth routes and any other routes here
