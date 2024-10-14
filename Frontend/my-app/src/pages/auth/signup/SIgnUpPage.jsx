@@ -61,7 +61,7 @@ const SignUpPage = () => {
           className="lg:w-1/3 mx-auto md:mx-20 flex gap-4 flex-col"
           onSubmit={handleSubmit}
         >
-          <h1 className="text-4xl font-extrabold text-white">Join today.</h1>
+          <h1 className="text-4xl font-extrabold text-black">Sign-Up</h1>
           <label className="input input-bordered rounded flex items-center gap-2">
             <MdOutlineMail />
             <input

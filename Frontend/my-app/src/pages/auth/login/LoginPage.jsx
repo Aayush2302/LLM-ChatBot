@@ -36,6 +36,7 @@ const LoginPage = () => {
   return (
     <div className="max-w-screen-xl mx-auto flex h-screen px-10 items-center justify-center">
       <form onSubmit={handleSubmit} className="lg:w-1/3 mx-auto space-y-4">
+        <h1 className="text-4xl font-extrabold text-black">Sign-Up</h1>
         <input
           type="email"
           className="input input-bordered w-full"
