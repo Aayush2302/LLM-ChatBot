@@ -5,7 +5,7 @@ import protectRoute from "../middleware/protectRoute.js";
 const router = express.Router();
 
 router.get("/", protectRoute, checkAdmin, (req, res) => {
-  console.log("User role:", req.userRole);
+  // console.log("User role:", req.userRole);
 
   return res.status(200).json({ role: req.userRole });
 });

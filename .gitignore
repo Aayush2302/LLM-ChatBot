@@ -1,8 +1,6 @@
 node_modules
 /.env
-\.env
-.env
-Backend\.env
+./Backend\.env
 .DS_Store
 .env.local
 .env.development.local

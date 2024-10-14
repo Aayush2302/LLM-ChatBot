@@ -20,7 +20,7 @@ function App() {
         <div>
           <Toaster position="top-right" reverseOrder={false} />
           <Routes>
-            <Route path="/signup" element={<SignUpPage />} />
+            <Route path="/" element={<SignUpPage />} />
             <Route path="/signin" element={<LoginPage />} />
             <Route path="/home/UserDashboard" element={<UserDashboard />} />
             <Route path="/admin/AdminDashboard" element={<AdminDashboard />} />

@@ -132,7 +132,7 @@ const UserDashboard = () => {
             Logout
           </button>
           <button
-            className=" btn btn-primary w-full"
+            className="lg:hidden btn btn-primary w-full"
             onClick={() => setShowHistory(false)}
           >
             Close History

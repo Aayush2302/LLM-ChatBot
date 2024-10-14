@@ -21,6 +21,7 @@
     "jsonwebtoken": "^9.0.2",
     "mongodb": "^6.9.0",
     "mongoose": "^8.7.1",
+    "truegradient": "file:..",
     "validator": "^13.12.0"
   },
   "devDependencies": {
