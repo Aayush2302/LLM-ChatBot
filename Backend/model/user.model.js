@@ -1,6 +1,5 @@
 // user.model.js
 import mongoose from "mongoose";
-import bcrypt from "bcrypt"; // For hashing passwords
 
 const chatEntrySchema = new mongoose.Schema({
   query: {
@@ -44,8 +43,8 @@ const userSchema = new mongoose.Schema(
     chatHistory: [chatEntrySchema],
   },
   { timestamps: true }
-); // Adds createdAt and updatedAt fields
+);
 
-const User = mongoose.model("User", userSchema); // Create the model
+const User = mongoose.model("User", userSchema);
 
-export default User; // Correctly export the model
+export default User;

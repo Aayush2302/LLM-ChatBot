@@ -1,6 +1,6 @@
 import express from "express";
-import protectRoute from "../middleware/protectRoute.js"; // Add .js
-import chatHistory from "../controller/ChatHistory.js"; // Add .js
+import protectRoute from "../middleware/protectRoute.js";
+import chatHistory from "../controller/ChatHistory.js";
 
 const router = express.Router();
 

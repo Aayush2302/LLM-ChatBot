@@ -1,6 +1,5 @@
 import express from "express";
 import app from "./app.js";
-import authRoutes from "./routes/auth.routes.js";
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

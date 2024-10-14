@@ -21,7 +21,6 @@ const isAdmin = (req, res, next) => {
       return res.status(403).json({ message: "Access denied: Admins only" });
     }
 
-    // User is admin, proceed to next middleware or route handler
     next();
   } catch (error) {
     console.error("Error in isAdmin middleware:", error);

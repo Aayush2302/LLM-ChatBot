@@ -72,6 +72,7 @@ const UserDashboard = () => {
     };
     checkRole();
   }, []);
+
   const handleUsersDataClick = () => {
     navigate("/admin/AdminDashboard"); // Navigate to the admin dashboard
   };
@@ -86,7 +87,7 @@ const UserDashboard = () => {
   return (
     <div className="flex h-screen">
       {/* Mobile toggle button for history */}
-      {!showHistory && ( // Conditionally render the toggle button when history is closed
+      {!showHistory && (
         <button
           className="lg:hidden p-2 m-2 rounded-full bg-primary text-white fixed z-50"
           onClick={() => setShowHistory(true)}
@@ -99,17 +100,15 @@ const UserDashboard = () => {
       <div
         className={`w-3/4 bg-base-200 p-4 lg:block ${
           showHistory ? "block" : "hidden"
-        } lg:relative fixed z-40 h-full lg:w-1/4`}
+        } lg:relative fixed z-40 h-full lg:w-1/4 flex flex-col`}
       >
-        <h2 className="text-xl font-bold mb-4">Search History</h2>
-        <div className="max-h-96 overflow-y-auto">
-          {" "}
-          {/* Scrollable history bar */}
+        <div className="flex-grow overflow-y-auto max-h-[70vh]">
+          <h2 className="text-xl font-bold mb-4">Search History</h2>
           <ul className="menu p-2 space-y-2">
             {searchHistory.map((qa) => (
-              <li key={qa._id}>
+              <li key={qa._id} className="border rounded-lg p-2">
                 <button
-                  className="btn btn-outline truncate w-full"
+                  className="btn btn-outline w-full truncate whitespace-normal text-left"
                   onClick={() => handleHistoryClick(qa)}
                 >
                   {qa.question}
@@ -118,28 +117,27 @@ const UserDashboard = () => {
             ))}
           </ul>
         </div>
-        {/* Close History Button */}
-        <button
-          className="lg:hidden mt-4 btn btn-primary w-full"
-          onClick={() => setShowHistory(false)}
-        >
-          Close History
-        </button>
-        {/* Logout Button */}
 
-        {/* Admin-specific button */}
-        {isAdmin && (
-          <button
-            onClick={handleUsersDataClick}
-            className="btn btn-primary mt-4  w-full"
-          >
-            Users Data
+        {/* Buttons at the bottom of the history bar */}
+        <div className="mt-4">
+          {isAdmin && (
+            <button
+              onClick={handleUsersDataClick}
+              className="btn btn-primary w-full mb-2"
+            >
+              Users Data
+            </button>
+          )}
+          <button className="btn btn-danger w-full mb-2" onClick={handleLogout}>
+            Logout
           </button>
-        )}
-
-        <button className="btn btn-danger mt-4 w-full" onClick={handleLogout}>
-          Logout
-        </button>
+          <button
+            className=" btn btn-primary w-full"
+            onClick={() => setShowHistory(false)}
+          >
+            Close History
+          </button>
+        </div>
       </div>
 
       {/* Main Chat Area */}
@@ -156,7 +154,7 @@ const UserDashboard = () => {
           </div>
         )}
         {/* Chat Messages */}
-        <div className="overflow-y-auto p-4 space-y-4 flex-1">
+        <div className="overflow-y-auto p-2 space-y-4 flex-1 max-h-[70vh]">
           {messages.map((msg, index) => (
             <div
               key={index}

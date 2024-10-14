@@ -1,7 +1,7 @@
 // routes/userRoute.js
 import express from "express";
-import checkAdmin from "../middleware/admin.protect.route.js"; // Import middleware
-import protectRoute from "../middleware/protectRoute.js"; // Import middleware
+import checkAdmin from "../middleware/admin.protect.route.js";
+import protectRoute from "../middleware/protectRoute.js";
 const router = express.Router();
 
 router.get("/", protectRoute, checkAdmin, (req, res) => {

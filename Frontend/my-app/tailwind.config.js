@@ -12,7 +12,7 @@ export default {
   plugins: [daisyui], // Include DaisyUI here
   daisyui: {
     themes: [
-      "cmyk", // Default theme
+      "black", // Default theme
       {
         black: {
           primary: "rgb(29, 155, 240)", // Customize your theme if needed

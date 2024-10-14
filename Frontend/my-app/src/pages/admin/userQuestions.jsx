@@ -1,14 +1,15 @@
 /* eslint-disable no-unused-vars */
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react"; // Import useRef
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
-import ReactMarkdown from "react-markdown"; // Correct capitalization of ReactMarkdown
+import ReactMarkdown from "react-markdown";
 
 const UserQuestions = () => {
   const { userId } = useParams();
   const [questions, setQuestions] = useState([]);
   const [selectedQuestion, setSelectedQuestion] = useState(null);
   const navigate = useNavigate();
+  const answerRef = useRef(null); // Create a ref for the answer section
 
   useEffect(() => {
     const fetchQuestion = async () => {
@@ -28,6 +29,9 @@ const UserQuestions = () => {
   // Handle showing the selected question's details
   const handleQuestionClick = (question) => {
     setSelectedQuestion(question);
+    if (answerRef.current) {
+      answerRef.current.scrollIntoView({ behavior: "smooth" }); // Scroll to the answer section smoothly
+    }
   };
 
   // Handle closing the selected question
@@ -46,7 +50,7 @@ const UserQuestions = () => {
               className="bg-base-200 p-4 rounded-lg shadow-lg"
             >
               <button
-                className="btn btn-outline w-full text-left"
+                className="btn btn-outline w-full text-left hover:bg-black hover:text-white transition duration-300 ease-in-out"
                 onClick={() => handleQuestionClick(question)} // Show question details
               >
                 {question.query} {/* Display the question */}
@@ -60,7 +64,7 @@ const UserQuestions = () => {
 
       {/* Display selected question and answer */}
       {selectedQuestion && (
-        <div className="mt-8 p-6 bg-white rounded-lg shadow-lg">
+        <div ref={answerRef} className="mt-8 p-6 bg-white rounded-lg shadow-lg">
           <h3 className="text-xl font-bold mb-4">Selected Question</h3>
           <p className="text-lg font-semibold">{selectedQuestion.query}</p>
           <h3 className="text-lg font-bold mt-6">Answer</h3>
